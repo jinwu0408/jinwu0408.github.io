@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Automated Boba Dispenser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/boba.css">
+</head>
+
+<body>
+  <div class="banner micromouse_banner">
+    <div class="banner_inner">
+      <h1 class="shadow">Automated Boba Dispenser</h1>
+      <a href="#content"><img class="arrow" src="img/arrow.svg" alt="Down arrow"></a>
+    </div>
+  </div>
+  <div class="context">
+    <div class="primary-content left-indent" id="content">
+      <div class="hori_bar_blue">
+        <!--introduction-->
+        <h1 class="title">What is Automated Boba Dispenser?</h1>
+        <div class="image">
+          <img src="img/boba_1.jpg" alt="ABG">
+          <figcaption>Fig.1 Automated Boba Dispenser</figcaption>
+        </div>
+        <p>
+          The dispenser is a fully
+          autonomous system that will take a customer/user’s choice of bubble
+          tea from various options (i.e. Milk Tea, Strawberry Milk Tea, etc.),
+          and dispense the drink into an appropriate-sized cup. The
+          product will be constructed from durable materials that have been
+          laser cut to ensure proper fitting. The bubble tea will be dispensed
+          from a built-in reservoir, along with the tapioca balls, through a
+          system of pumps connected via food-grade silicone tubes. A Raspberry
+          Pi will be used as the microcontroller controlling the machine’s pumps
+          and on-board electronics, such as the OLED display. The Pi will also
+          execute a Python script to communicate with the various peripherals
+          to properly dispense the user’s chosen drink.
+        </p>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Motivation</h1>
+        <p>This project aims to provide bubble tea store owners an alternative
+          to their manual labor force in a rapidly expanding market. As of
+          2016, the global bubble tea market was valued at $1.9M and is
+          projected to reach $3.2M by 2023 (Allied Market Research). The
+          increasing demand for bubble tea will consequently cause a rise in
+          the demand for workers in the tea industry, which may cause a
+          shortage in the labor force. To relieve the strain on the workers,
+          as well as business owners hiring these workers, this project will
+          automate the process of serving bubble tea to customers.
+        </p>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Learning Objectives</h1>
+        <ul>
+          <li>Design and construct a form factor for the dispenser
+            <ul>
+              <li>Requires the use of Inkscape for laser cutting, SolidWorks
+                for 3D printing and designing, and workshop for the assembly
+                of the dispenser’s case.</li>
+            </ul>
+          </li>
+          <li>Design the power system for the dispenser
+            <ul>
+              <li>A fundamental knowledge of AC/DC power systems is necessary
+                to safely and efficiently supply power to the dispenser and
+                all of its peripherals.</li>
+            </ul>
+          </li>
+          <li>Develop a Python program for the dispenser via Raspberry Pi,
+            liquid pumps, etc.
+            <ul>
+              <li>Members will learn about Pi development through connecting
+                sensors and motors to the Pi, and also sharpen their software
+                knowledge of Python to program the Pi to act as the
+                dispenser’s primary controller.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="image">
+          <img src="img/Boba_learning.jpg" alt="ABG">
+          <figcaption>Fig.2 Automated Boba Dispenser</figcaption>
+        </div>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Engeering Software</h1>
+        <ul>
+          <li>Inkscape
+            <ul>
+              <li>Used to construct various frame components such as
+                platforms, walls, etc.</li>
+            </ul>
+          </li>
+          <li>SolidWorks
+            <ul>
+              <li>Developed 3D models of the dispenser and boba scooping
+                mechanism for 3D-printing and assembly.</li>
+            </ul>
+          </li>
+          <li>Arduino IDE
+            <ul>
+              <li>Used to develop, test, and debug code for the
+                Arduino-controlled boba scooper. </li>
+            </ul>
+          </li>
+          <li>Python (2.7)
+            <ul>
+              <li>Sole programming language used with the Raspberry Pi to
+                control the system’s pumps, OLED display, and control logic
+                associated with operation.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Cost & Budget</h1>
+        <div class="image">
+          <img src="img/boba_cost.jpg" alt="ABG">
+          <figcaption>Fig.3 Bill of Materials</figcaption>
+        </div>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Schedule</h1>
+        <div class="image">
+          <img src="img/boba_schedule.jpg" alt="ABG">
+          <figcaption>Fig.4 Gantt Chart</figcaption>
+        </div>
+        <p>Above is a Gantt chart for our team’s project. This served as an
+          outline of events that we intended to complete on or before the
+          specified dates on the chart. This was in order to make sure
+          the project was completed by the deadline.</p>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Build Steps</h1>
+        <h2>Building the Frame</h2>
+        <ul>
+          <li>From a 13 inch block of 0.75”x 1.5” common wood, saw the
+            following portions:<ul>
+              <li>4 x 16” blocks</li>
+              <li>6 x 7.5” blocks</li>
+              <li>4 x 9” blocks</li>
+            </ul>
+          </li>
+          <li>
+            Screw 2 of the 16” blocks with 2 of the 7.5” blocks to make the
+            sides of the dispenser frame.(Figure 5.1)
+            <ul>
+              <li>Repeat this process one more time to have two frame pieces
+                for the dispenser.</li>
+              <li>It is helpful to drill plot holes before screwing in wood
+                screws to prevent the wood from cracking.</li>
+            </ul>
+          </li>
+          <li>Use four 9” blocks to connect the two frame pieces together from
+            the top and bottom.
+          </li>
+          <li> Connect two more 7.5” blocks for the drink platform (Figure 5.1).
+            <ul>
+              <li>Measure 3” from the bottom of the frame and screw
+                the 7.5” blocks at the mark.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="image">
+          <img src="img/Boba_fig5.jpg" alt="ABG">
+        </div>
+        <h2>Mounting and Wiring Electronics</h2>
+        <ul>
+          <li>Refer to the wiring schematic for all steps in this section
+            (Figure 8).
+          </li>
+          <li>
+            After deciding where each electronic component will be placed, begin
+            by connecting the 12 volt power supply to Power Display Board (PDB).
+            <ul>
+              <li>You will be connecting a wire (red) that signifies a positive
+                power connection to P1, and another wire (black) that signifies
+                a GND connection to P2 (Figure 5.2).
+              </li>
+              <li>
+                Make sure to use the Sortie positive and negative(GND) inputs
+                of the power supply (Figure 6).
+              </li>
+            </ul>
+          </li>
+          <div class="image">
+            <img src="img/Boba_fig6.jpg" alt="ABG">
+            <figcaption>Fig.6 Power Supply---Transformer</figcaption>
+          </div>
+          <li>
+            After successfully connecting the power supply to PDB, you will then
+            connect the pumps to the PDB. First connect two wires to PDB’s P1
+            input, which will be for each pump’s positive ended pin.
+            <ul>
+              <li>
+                Two GND wires will then be connected to two channels of the 8
+                channel relay(check schematic for respective pin allocations).
+              </li>
+            </ul>
+          </li>
+          <li>
+            The pumps will need soldering for the GND and positive wire, as well
+            as the 1N4007 diode. This diode will be soldered between the two
+            wires for each pump, making sure the grey line of the diodes are
+            facing the positive side of the pumps.
+          </li>
+          <li>
+            Proceed by connecting the 8 channel relay to Raspberry PI 3
+            (or zero). Pin wiring can be seen on electronic schematic.
+          </li>
+          <div class="image">
+            <img src="img/Boba_fig7.jpg" alt="fig7">
+            <figcaption>Fig.7 Eight channel relay</figcaption>
+          </div>
+          <li>
+            Next, the 5V regulator will be connected from power supply to
+            Raspberry Pi and 8 channel relay (Figure 7). The positive and
+            GND inputs of 5V regulator will be connected to the respective
+            pins of the PDB. The positive and GND outputs will then be connected
+            to 8 channel relay and Raspberry (Figure 8).
+            <ul>
+              <li>
+                In order to successfully connect the 5V regulator, soldering must
+                be done for each input and output with their respective wiring.
+                Secondly, an additional wire must be soldered to the positive
+                output of 5V regulator to make a second connection to Raspberry Pi,
+                also known as a SPLICE.
+              </li>
+            </ul>
+          </li>
+          <div class="image">
+            <img src="img/Boba_schematic.jpg" alt="ABG">
+            <figcaption>Fig.8 Schematic</figcaption>
+          </div>
+          <li>
+            Next, check schematic for final pin wirings of OLED screen and buttons.
+          </li>
+          <li>
+            Finally, powering the system will require a computer cable. This
+            cable will be cut to where the three inner wires are able to be
+            inserted into the power supply inputs. Please check resources for
+            color coordination to successfully power on the electronic system.
+          </li>
+        </ul>
+        <h2>Software</h2>
+        <ul>
+          <li>
+            Create the Python scripts (https://github.com/jinwu0408/Automated-Boba-Gadget)
+          </li>
+          <li>
+            Configure inputs and outputs according to what pins used on the
+            Raspberry Pi (Bartender.py -> function initial)
+          </li>
+          <li>
+            Make a menu of all the drinks with their ingredients included
+            (drinks.py)
+          </li>
+          <li>
+            Create a script that implements the buttons and pumps (Bartender.py)
+          </li>
+          <li>
+            Pressing one button cycles through the menu so that there is only
+            one drink displayed at a time (function next_item)
+          </li>
+          <li>
+            Pressing the other button enables the pumps and motor for the boba,
+            dispensing it into the drink (function dispense)
+          </li>
+          <li>
+            Create a script that updates the OLED display screen with the current
+            menu item (updateDisplay)
+          </li>
+          <li>
+            Add a countdown timer on the OLED to display how much time before
+            the drink is finished dispensing
+          </li>
+          <li>
+            Test and debug
+          </li>
+          <li>
+            Final test run
+          </li>
+          <li>
+            Test the ABG from start to finish to ensure functionality
+          </li>
+        </ul>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Visual</h1>
+        <div class="image">
+          <img src="img/Boba_fig8.jpg" alt="ABG">
+          <figcaption>Fig.8</figcaption>
+        </div>
+        <div class="image">
+          <img src="img/Boba_fig9.jpg" alt="ABG">
+          <figcaption>Fig.9</figcaption>
+        </div>
+        <div class="image">
+          <img src="img/Boba_fig10.jpg" alt="ABG">
+          <figcaption>Fig.10</figcaption>
+        </div>
+      </div>
+      <div>
+        <h1>Resources</h1>
+        <ul>
+          <li>
+            <a href="https://www.alliedmarketresearch.com/bubble-tea-market" target="_blank">
+              https://www.alliedmarketresearch.com/bubble-tea-market
+            </a>
+          </li>
+          <li>
+            <a href="https://www.nytimes.com/2017/08/16/business/smallbusiness/bubble-tea.html" target="_blank">
+              https://www.nytimes.com/2017/08/16/business/smallbusiness/bubble-tea.html
+            </a>
+          </li>
+          <li>
+            <a href="https://www.hackster.io/hackershack/smart-bartender-5c430e" target="_blank">
+              https://www.hackster.io/hackershack/smart-bartender-5c430e
+            </a>
+          </li>
+          <li>
+            <a href="www.bobastory.com" target="_blank">
+              www.bobastory.com
+            </a>
+          </li>
+          <li>
+            <a href="https://www.douglaskrantz.com/ElecFlybackDiode.html" target="_blank">
+              https://www.douglaskrantz.com/ElecFlybackDiode.html
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/HackerShackOfficial/Smart-Bartender/blob/master/bartender.py" target="_blank">
+              https://github.com/HackerShackOfficial/Smart-Bartender/blob/master/bartender.py
+            </a>
+          </li>
+          <li>
+            <a href="https://en.wikipedia.org/wiki/Soda_fountain" target="_blank">
+              https://en.wikipedia.org/wiki/Soda_fountain
+            </a>
+          </li>
+          <li>
+            <a href="https://www.bubbleteasupply.com/faq/" target="_blank">
+              https://www.bubbleteasupply.com/faq/
+            </a>
+          </li>
+          <li>
+            <a href="https://cooking.stackexchange.com/questions/29142/after-how-long-is-boiled-milk-tea-consumable" target="_blank">
+              https://cooking.stackexchange.com/questions/29142/after-how-long-is-boiled-milk-tea-consumable
+            </a>
+          </li>
+          <li>
+            <a href="https://www.fda.gov/food/foodborneillnesscontaminants/buystoreservesafefood/ucm255180.htm" target="_blank">
+              https://www.fda.gov/food/foodborneillnesscontaminants/buystoreservesafefood/ucm255180.htm
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!--End introduction-->
+    </div><!-- End .primary-content -->
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com/jinwu0408" target=_blank class="social twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/jin-wu/" target=_blank class="social linkedin">LinkedIn</a></li>
+      <li><a href="https://github.com/jinwu0408" target=_blank class="social github">Github</a></li>
+      <li><a href="mailto:jinwu0408@gmail.com" target=_blank class="social google">Email</a></li>
+      <li><a href="https://www.instagram.com/jin_wu/" target=_blank class="social instagram">Instagram</a></li>
+    </ul>
+    <p class="copyright">Copyright 2019, Jin Wu</p>
+  </footer>
+</body>
+
+</html>

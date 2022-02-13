@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AMC Messenger Bot</title>
+  <link rel="stylesheet" href="css/AMC.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="banner micromouse_banner">
+    <div class="banner_inner">
+      <h1 class="shadow">AMC Messenger Bot</h1>
+      <a href="#content"><img class="arrow" src="img/arrow.svg" alt="Down arrow"></a>
+    </div>
+  </div>
+  <div class="context">
+    <div class="primary-content left-indent" id="content">
+      <div class="hori_bar_blue">
+        <!--introduction-->
+        <h1 class="title">What is AMC Messenger Bot?</h1>
+        <p>
+          AMC messenger bot is a facebook messenger bot that auto load lastest
+          movie showtimes from AMC website by webscraping. So far, it only utilizes
+          AMC. However, it has the potential to have more functions, such as local
+          events search, concert tickets booking, even shopping for daily supplies.
+        </p>
+      </div>
+      <!--End introduction-->
+      <div class="hori_bar_blue">
+        <h1>Echo Bot</h1>
+        <p>First we need to make sure that we can communicate through facebook's API
+          by making an echo bot using Facebook developer tool and python library-Pymessenger. We used Flask
+          to make web services and glitch for real time hosing.</p>
+        <p>The echo bot will echo back what ever the user's messages are. Overall
+          structure is similiar to the picture below:</p>
+        <div class="image">
+          <img src="img/amc_1.jpg" alt="Geisel_Before_processed">
+          <figcaption>Fig.1 Echo Bot Architecture.</figcaption>
+        </div>
+        <p>Whenever the user sent a message, the flask server would capture
+          it and sent it to our bot. Our bot, then copy the message and send it back
+          to the user by making a post request to facebook messenger. </p>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Webscraping</h1>
+        <p>After we are able to receive and sent messages, we need to prepare
+          respond. In other word, we need to get the showtime of all the current movies.
+        </p>
+        <p>
+          We do this by webscraping AMC's website. First we need to land on the showtime page.
+          AMC's showtime button turn grey, if the time is already passed. Notice,
+          in the picture below, only 9:20pm is white, and it is because this screenshot
+          was taken at 9:00pm.
+        </p>
+        <div class="image">
+          <img src="img/AMC_showtime.jpg" alt="Geisel_Before_processed">
+          <figcaption>Fig.2 AMC Movie Shotimes.</figcaption>
+        </div>
+        <p>
+          I don't want send showtimes that are already pass. So the first thing is
+          looping through all the showtimes and filter out passed times. Then, we
+          read the movie titles, and all their respected showtimes. Last, we get
+          the "href", which is the tickets buying pages.
+        </p>
+        <p>Once we have all the Informations, we prepare the button message that
+          users can just click on it and it redirct them to the tickets page.</p>
+      </div>
+      <div class="hori_bar_blue">
+        <div class="image">
+          <img src="img/AMC_respond.jpg" alt="Geisel_Before_processed">
+          <figcaption>Fig.3 Respond from AMC Mesenger Bot.</figcaption>
+        </div>
+        <p>Now, we have the button message ready, we send it. Above is a sample
+          respond. To make room for future development, out bot only respond if
+          the user ask for "Movie". For example, I can add the function of replying
+          all the nearby coffee shop if the user ask for "Coffee". </p>
+      </div>
+      <div>
+        <h1>Resources</h1>
+        <ul>
+          <li><a href="http://eceusc.ucsd.edu/" target="_blank">UCSD Undergraduate Student Council</a></li>
+          <li><a href="https://hackmd.io/@cqvu/messengerechobot?type=slide#/" target="_blank">Echo Bot Guide</a></li>
+          <li><a href="https://pypi.org/project/pymessenger/" target="_blank">Pymessenger</a></li>
+
+        </ul>
+      </div>
+
+    </div><!-- End .primary-content -->
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com/jinwu0408" target=_blank class="social twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/jin-wu/" target=_blank class="social linkedin">LinkedIn</a></li>
+      <li><a href="https://github.com/jinwu0408" target=_blank class="social github">Github</a></li>
+      <li><a href="mailto:jinwu0408@gmail.com" target=_blank class="social google">Email</a></li>
+      <li><a href="https://www.instagram.com/jin_wu/" target=_blank class="social instagram">Instagram</a></li>
+    </ul>
+    <p class="copyright">Copyright 2019, Jin Wu</p>
+  </footer>
+</body>
+
+</html>

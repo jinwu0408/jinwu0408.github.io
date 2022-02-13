@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cheetah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/cheetah.css">
+</head>
+
+<body>
+  <div class="banner cheetah_banner">
+    <div class="banner_inner">
+      <h1 class="shadow">Cheetah Detection</h1>
+      <a href="#content"><img class="arrow" src="img/arrow.svg" alt="Down arrow"></a>
+    </div>
+  </div>
+  <div class="context">
+    <div class="primary-content indent" id="content">
+      <div class="hori_bar_blue">
+        <!--introduction-->
+        <h1>Pattern Recognition</h1>
+        <p>
+          This is a projet involves pattern recognition problems in computer
+          vision. The goal is to segment the “cheetah” image (shown below in
+          the left) into its two components, cheetah (foreground) and grass (background).
+        </p>
+        <p>
+          To formulate this as a pattern recognition problem, we need to decide
+          on an observation space. Here we will be using the space of 8 × 8
+          image blocks, i.e. we view each image as a collection of 8 × 8 blocks.
+          For each block we compute the discrete cosine transform (function
+          dct2 on MATLAB) and obtain an array of 8 × 8 frequency coefficients.
+          We do this because the cheetah and the grass have different textures,
+          with different frequency decompositions and the two classes should be
+          better separated in the frequency domain. We then convert each 8 × 8
+          array into a 64 dimensional vector because it is easier
+          to work with vectors than with arrays.
+        </p>
+      </div>
+      <!--End introduction-->
+      <!-- Metric-->
+      <div class="hori_bar_blue clearfix">
+        <!--Constraint-->
+        <h1 class="title">Metric</h1>
+        <div class="left">
+          <div class="image">
+            <img src="img/cheetah_val.jpg" alt="Schematic-Communication">
+            <figcaption>Fig.1 Test and Validation Image</figcaption>
+          </div>
+        </div>
+        <div class="right">
+          <div class="image">
+            <img src="img/cheetah_mask.jpg" alt="Schematic-Communication">
+            <figcaption>Fig.2 Test and Validation Mask</figcaption>
+          </div>
+        </div>
+      </div>
+<!-- End of Metric-->
+  <!--Model-->
+      <div>
+        <h1 class="title">Models</h1>
+    <!-- model1 -->
+        <h2 class="title">Bayesian Model with Only 2nd Largest DCT</h2>
+        <p>To tryout and make the task of estimating the class conditional densities easier, we are going to reduce each
+          vector to a scalar. For this, for each vector, we compute the index (position within the vector) of the
+          coefficient that has the 2nd largest energy value (absolute value). This is our observation or feature X.
+          (The reason we do not use the coefficient with the largest energy is that it is always the so-called “DC”
+          coefficient, which contains the mean of the block). By building an histogram of these indexes we obtain
+          the class-conditionals for the two classes PX|Y (x|cheetah) and PX|Y (x|grass). The priors PY (cheetah)
+          and PY (grass) is also be estimated from the training set. Then using Baysian decision rule(BDR), we can classify each pixel with the prospective probabilities.
+        <div class="image">
+          <img src="img/cheetah_pic1.png" alt="Schematic-Power">
+          <figcaption>Fig.3 Mask of Model 1</figcaption>
+        </div>
+        <p>As we can see, the cheetah is not very well recognized, but the
+          general shape is there. As the first and a relatively simple model,
+          it is not too bad of an result. However, this model has some improve space.</p>
+    <!-- end of model1 -->
+
+        <h2 class="title">Bayesian Model using Gaussian Assumption</h2>
+        <p>Once again we use the decomposition into 8×8 image blocks, compute
+          the DCT of each block, and zig-zag scan. However, we are going to
+          assume that the class-conditional densities are multivariate Gaussians
+          of 64 dimensions. Then, we compute the Bayesian decision rule and classify the locations of the cheetah image using i) the
+64-dimensional Gaussians, and ii) the 8-dimensional Gaussians associated with the best 8 features.
+
+            <div class="image">
+              <img src="img/cheetah2.png" alt="Schematic-Communication">
+              <figcaption>Fig.4 64-Dimensional Gaussians Mask</figcaption>
+            </div>
+
+            <div class="image">
+              <img src="img/cheetah3.png" alt="Schematic-Communication">
+              <figcaption>Fig.5 8-Dimensional Gaussians Mask</figcaption>
+            </div>
+
+        <p>Apparently the 8-dimensional gaussians classifier is better than
+          that of 64-dimensional gaussian. This is because the 64-dimensional
+          gaussian contains a lot of dimensions whose gaussian distributions
+           are not so distinguishable, so these
+           dimensions are actually not helping but adding ambiguity to the
+           classification, resulting in an higher error rate. </p>
+           <!-- end of model2 -->
+
+           <h2 class="title">Bayesian Vs. MAP Vs. ML</h2>
+           <p>Once again we use the decomposition into 8 × 8 image blocks,
+             compute the DCT of each block, and zig-zag scan. We also
+            continue to assume that the class-conditional densities are
+            multivariate Gaussians of 64 dimensions.
+            The goal is to understand the benefits of a Bayesian solution.
+            For this, we created 4 datasets of size given by the table below.</p>
+            <table>
+              <tr>
+                <th>DataSet</th>
+                <th>Cheetah Examples</th>
+                <th>Grass Examples</th>
+              </tr>
+              <tr>
+                <td>D1</td>
+                <td>75</td>
+                <td>300</td>
+              </tr>
+              <tr>
+                <td>D2</td>
+                <td>125</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>D3</td>
+                <td>175</td>
+                <td>700</td>
+              </tr>
+              <tr>
+                <td>D4</td>
+                <td>225</td>
+                <td>900</td>
+              </tr>
+            </table>
+            <p>
+            We start by setting up the Bayesian model. To simplify things a bit we are going to cheat a little.
+            With respect to the class-conditional,
+            Px|µ,Σ = G(x, μ, Σ). </p>
+            <p>
+            we assume that we know the covariance matrix (like Bayes might) but simply replace it by the sample
+            covariance of the training set, D, that we are working with.
+            We are, however, going to assume unknown mean and a Gaussian prior of mean μ0 and covariance Σ0.
+            Pµ(μ) = G(μ, μ0, Σ0).
+            Regarding the mean μ0, we assume that it is zero for all coefficients other than the first (DC) while for
+            the DC we consider two different strategies:</p>
+
+            <li>Strategy 1 : μ0 is smaller for the (darker) cheetah class (μ0 = 1) and larger for the (lighter) grass
+            class (μ0 = 3).</li>
+            <li>Strategy 2 : μ0 is equal to half the range of amplitudes of the DCT coefficient for both classes
+            (μ0 = 2);</li>
+            </ol>
+            <p>For the covariance Σ0 we assume a diagonal matrix with (Σ0)ii = αwi.
+              The rate of error for each Dataset and each model are shown in the graph below.</p>
+
+               <div class="image">
+                 <img src="img/cheetah4.png" alt="Schematic-Communication">
+                 <figcaption>Fig.6 Rate of Error for Strategy 1</figcaption>
+               </div>
+
+               <div class="image">
+                 <img src="img/cheetah5.png" alt="Schematic-Communication">
+                 <figcaption>Fig.7 Rate of Error for Strategy 2</figcaption>
+               </div>
+
+           <p>For each dataset using strategy 2, the probability of error of Bayesian and MAP decreases as alpha increases, and finally saturated at around the probability of error of ML except dataset 1. This indicates that Bayesian really makes a difference (has the best solution) when we have little amount of data (dataset 1 has the least amount of data). And as the amount of data increases (from dataset 1 to dataset 4), we become more and more confident about our model, so the result of Bayesian and MAP is almost the same.
+Strategy 2 assumes each class has the same mean mu_0, when the covariance is small (alpha is small), the classification results depend very much on the priori, and keeps decreasing as covariance increasing. The graph indicates that the probability of error of Bayesian and MAP decreases as the dependence on the priori decrease, suggesting we have a very bad priori (worse than ML) under strategy 2.
+When alpha is huge, we depend little on the priori, the result of Bayesian and ML is almost the same, suggesting that ML is a special case of Bayesian with higher uncertainty model (non-
+
+informative prior). </p>
+        <!-- end of model3 -->
+        <h2 class="title">Mixture of Gaussian</h2>
+        <p>In this model, we use the cheetah image to evaluate the performance of a classifier based on
+        mixture models estimated with EM. Once again we use the decomposition into 8×8 image blocks, compute the DCT of each block, and zig-zag scan. For this (using the data in TrainingSamplesDCT new 8.mat)
+        we fit a mixture of Gaussians of diagonal covariance to each class. We then apply the BDR based on these density estimates to the
+        cheetah image and measure the probability of error as a function of the number of dimensions of the
+        space (as before, use {1, 2, 4, 8, 16, 24, 32,..., 64} dimensions.I obtained the
+        following graph by training 5 mixtures of models for both grass and cheetah data.
+         Then using 5*5 combinations of model to computer the error rate on the test
+         image using different dimension and produced the following 10 graphs.
+        <div class="image">
+          <img src="img/cheetah6.png" alt="Schematic-Communication">
+        </div>
+
+        <div class="image">
+          <img src="img/cheetah7.png" alt="Schematic-Communication">
+        </div>
+        <p>From the first five graph(clustered by grass classifier), the five lines are very close to each other, indicating that regardless of the different random initialization, our models have roughly the same performance under different dimensions after the Expectation Maximization process. And this can also be inferred from the last five graphs which are clustered by cheetah classifier.
+          It is also noticeable that within each individual graph, the relationship between PoE and number of dimensions is not monotonically decreasing, suggesting that the increasing of dimensions will not necessarily generate better classifiers, and very big dimensions will generally introduce overfitting (the PoE increases when dimension grows big). In this case, the dimension that will introduce smallest PoE is around 32.
+          </p>
+          <p>For each class, model is learned with mixtures with C ∈ {1, 2, 4, 8, 16, 32}. The probability of error vs. dimension
+for each number of mixture components is plotted below.</p>
+        <div class="image">
+          <img src="img/cheetah8.png" alt="Schematic-Communication">
+        </div>
+        <p>Basically, when the number of mixtures is small (C = 1, 2), we have relatively simple model which is incapable of describing the distribution when the dimension grows large. When the number of mixtures is appropriate (C = 4, 8, 16), the model can better fitting the true distribution as dimension grows large. However, when the number of mixtures is too big (C = 32), we have too complicated a model which can easily introduce overfitting as dimension grows large
+        </p>
+          <!-- end of model4 -->
+
+      </div>
+      <!--End Hardware-->
+    </div><!-- End .primary-content -->
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com/jinwu0408" target=_blank class="social twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/jin-wu/" target=_blank class="social linkedin">LinkedIn</a></li>
+      <li><a href="https://github.com/jinwu0408" target=_blank class="social github">Github</a></li>
+      <li><a href="mailto:jinwu0408@gmail.com" target=_blank class="social google">Email</a></li>
+      <li><a href="https://www.instagram.com/jin_wu/" target=_blank class="social instagram">Instagram</a></li>
+    </ul>
+    <p class="copyright">Copyright 2019, Jin Wu</p>
+  </footer>
+</body>
+
+</html>

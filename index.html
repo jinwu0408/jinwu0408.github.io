@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jin Wu</title>
+  <link rel="shortcut icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header id="top" class="main-header">
+    <nav class="container clearfix">
+      <a class="name" href="index.html">
+        <img src="img/logo.png" alt="Logo" class="logo" id="logo">
+      </a>
+      <ul class="main-nav">
+        <li><a class="h1_shadow" href="#project">Projects</a></li>
+        <!-- <li><a class="h1_shadow" href="#AfterHour">AfterHour</a></li> -->
+        <li><a class="h1_shadow" href="#resume">Resume</a></li>
+        <li><a class="h1_shadow" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- <canvas id="canvas">
+      <div class="banner_inner">
+      </div>
+    </canvas> -->
+
+  <div id="picture">
+
+    <canvas id="canvas">
+    </canvas>
+
+    <h1 class="blob1 shadow"><I>Jin Wu<I></h1>
+  </div>
+
+  </div>
+
+  <div class="context">
+    <div class="primary-content" id="intro">
+      <p class="intro">
+        This is Jin's perosonal website. I like snow. They are pure, free, and unique.
+        Sometimes I picture myself as a snowflake, wondering around in this beautiful world.
+      </p>
+      <p class="intro">
+        Join me by cliking the Snowflake below.
+      </p>
+      <a href="#about"><img src="img/logo.png" alt="Logo" class="logo"></a>
+
+      <div class="about" id="about">
+        <h2>About Me</h2>
+        <p>
+          Just as snow, I am unique. My curiosity and passion determined the direction
+          that I am flying to. As an engineering, I am passionateabout designing
+          and building. I constantly involved in different <a href="#">projects</a>.
+          In life, there are also many things attracting me,
+          <a href="#">swimming</a>,
+          <a href="#">piano</a>,
+          <a href="#">guitar</a>,
+          <a href="#">dancing</a>,
+          <a href="#">etc</a>.
+          Even wind is blowing strong somtimes,
+          I always know what I want, and where I want to go.
+        </p>
+      </div><!-- End .wildlife -->
+    </div>
+
+    <div class="secondary-content clearfix" id="project">
+      <h1 class="h1_shadow">Projects:</h1>
+      <ul class="event">
+        <li class="event-card">
+          <a href="cheetah.html" target="_blank"><img src="img/cheetah.jpg" alt="Cheetah"></a>
+          <h3><a href="neural.html" target="_blank">Cheetah Detection</a></h3>
+          <p>
+            Pattern recognition is common tool for computer vision. The project
+            walks through, Baysian, ML, and MAP model. In addition a Mixture of
+            Gaussian is analyzed in details as well. A great learning for
+            beginners of CV.
+            <br><a href="cheetah.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+        <li class="event-card">
+          <a href="SecleGAN.html" target="_blank"><img src="img/orange.jpeg" alt="SecleGAN"></a>
+          <h3><a href="SecleGAN.html" target="_blank">Secle GAN</a></h3>
+          <p>
+            Despite the fact that CycleGAN algorithm gained a lot success of
+            in transforming images, it also has some limitations and failed
+            some cases. Our proposed Secle GAN algorithm is an improvement of
+            Cycle GAN by combining it with segmentation.
+            <br><a href="SecleGAN.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+        <li class="event-card">
+          <a href="VSEIR.html" target="_blank"><img src="img/covid.jpeg" alt="VSEIR"></a>
+          <h3><a href="VSEIR.html" target="_blank">VSEIR model for COVID 19 Projection</a></h3>
+          <p>
+            SEIR model has done quite well in simulating the COVID-19 in early period.
+            However, we found it quite inaccurate after a long
+            period of time. In our project, we would like to improve the
+            model by adding more deterministic stages, such as Vaccination and
+            Asymptomatic to make it a more rigorous model.
+            <br><a href="VSEIR.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+        <li class="event-card">
+          <a href="facial.html" target="_blank"><img src="img/facial.jpg" alt="Facial Recognition"></a>
+          <h3><a href="facial.html" target="_blank">Facial Recognition</a></h3>
+          <p>
+            A facial recognition system is a technology capable of identifying or verifying a fadsfasdfadfadfafasdfafe erfaefd 
+            person from a digital image. We used <a href="#opencv">OpenCV</a> for image processing,
+            RPi to capture real time pictures, <a href="Tensorflow">Tensorflow(Keras)</a> with the VGG16 to train
+            and <a href="AWS">AWS</a>host services.
+            <br><a href="Facial Recognition.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+        <li class="event-card">
+          <a href="Micromouse.html" target="_blank"><img src="img/micromouse.jpg" alt="Micromouse"></a>
+          <h3><a href="Micromouse.html" target="_blank">Micromouse</a></h3>
+          <p>
+            Micromouse is an event where small robot mice solve a 16 × 16 maze.
+            The mices finding their way from a predetermined starting position to
+            the central area of the maze unaided as fast as possible
+            <br><a href="Micromouse.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+
+        <li class="event-card">
+          <a href="AMC.html" target="_blank"><img src="img/AMC.jpg" alt="AMC"></a>
+          <h3><a href="AMC.html" target="_blank">AMC Messenger Bot</a></h3>
+          <p>
+            AMC messenger bot is a facebook messenger bot that auto load lastest
+            movie showtimes from AMC website by webscraping. Flask for webservices,
+            Pymessenger for Facebook API, glitch for web hosting.
+            <br><a href="AMC.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+
+
+        <li class="event-card">
+          <a href="Boba.html" target="_blank"><img src="img/boba.jpg" alt="Boba Dispenser"></a>
+          <h3><a href="Boba.html" target="_blank">Automated Boba Dispenser</a></h3>
+          <p>
+            A smart bartender that dispenses from the pre-set drink menu. It is an useful
+            tool for boba shop to cut expense on labors by automate the process of dispensing.
+            It also has improving space and full custome potential.
+            <br><a href="boba.html" target="_blank">Learn More</a>
+          </p>
+        </li>
+       <li class="event-card">
+          <a href= "#"><img src="img/snow-background.jpg" alt="Webpage"></a>
+          <h3><a href= "#">Webpage Design</a></h3>
+          <p>
+            Web Design is turning ideas into real. Starting from a blank page, gradually
+            adding content, layout and style using tools, such as <a href= "#HTML">HTML</a> and
+            <a href= "#CSS">CSS</a>.
+            <a href="#">Learn More</a>
+          </p>
+        </li>
+          <!-- <div class="right last-card">
+            <a href= "#"><img src="img/sneaker.jpg" alt="Sneaker"></a>
+            <h3><a href= "#">Sneaker Dictionary</a></h3>
+            <p>
+              Coming Soon.
+            </p>
+          </div> --> -->
+    </div><!-- End .project-content -->
+    <!-- <div class="secondary-content clearfix hori_bar" id="AfterHour">
+      <h1 class="h1_shadow">AfterHour:</h1>
+      <ul class="event afterhour">
+        <li class=" event-card">
+          <a href="Gallery.html"><img src="img/gallery.jpg" alt="Gallery"></a>
+          <h3><a href="Gallery.html" target="_blank">Gallery</a></h3>
+        </li>
+        <li class="event-card">
+          <a href="marathon.html"><img src="img/marathon.jpg" alt="Marathon"></a>
+          <h3><a href="marathon.html" target="_blank">Marathon</a></h3>
+        </li>
+        <li class="event-card">
+          <a href="hobby.html"><img src="img/hobby.jpg" alt="Hobby"></a>
+          <h3><a href="hobby.html" target="_blank">Hobby</a></h3>
+        </li>
+        <li class="event-card">
+          <a href="collection.html"><img src="img/collection.jpg" alt="Collection"></a>
+          <h3><a href="collection.html" target="_blank">Collection</a></h3>
+        </li>
+      </ul>
+    </div> -->
+    <!--End .AfterHour-content-->
+
+    <div class="resume secondary-content" id="resume">
+      <h1>Resume</h1>
+      <iframe src="resume.pdf" width="100%" height="500px">
+      </iframe>
+    </div>
+
+
+    <div id="contact">
+      <!-- Begin Mailchimp Signup Form -->
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+      <style type="text/css">
+        #mc_embed_signup {
+          background: #fff;
+          clear: left;
+          font: 14px Helvetica, Arial, sans-serif;
+        }
+
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+      </style>
+      <div id="mc_embed_signup">
+        <form action="https://ucsd.us3.list-manage.com/subscribe/post?u=70945bd9f86e6fa43a49cae68&amp;id=a7a0e5c181" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+            <h1>Contact Me</h1>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+              <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+              </label>
+              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+            </div>
+            <div class="mc-field-group">
+              <label for="mce-FNAME">First Name <span class="asterisk">*</span>
+              </label>
+              <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+            </div>
+            <div class="mc-field-group">
+              <label for="mce-LNAME">Last Name <span class="asterisk">*</span>
+              </label>
+              <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+            </div>
+            <div class="mc-field-group">
+              <label for="mce-MMERGE6">MESSAGE </label>
+              <input type="text" rows="4" value="" name="MMERGE6" class="" id="mce-MMERGE6">
+            </div>
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_70945bd9f86e6fa43a49cae68_a7a0e5c181" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+        </form>
+      </div>
+      <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+      <script type='text/javascript'>
+        (function($) {
+          window.fnames = new Array();
+          window.ftypes = new Array();
+          fnames[0] = 'EMAIL';
+          ftypes[0] = 'email';
+          fnames[1] = 'FNAME';
+          ftypes[1] = 'text';
+          fnames[2] = 'LNAME';
+          ftypes[2] = 'text';
+          fnames[6] = 'MMERGE6';
+          ftypes[6] = 'text';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
+      </script>
+      <!--End mc_embed_signup-->
+    </div>
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com/jinwu0408" target=_blank class="social twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/jin-wu/" target=_blank class="social linkedin">LinkedIn</a></li>
+      <li><a href="https://github.com/jinwu0408" target=_blank class="social github">Github</a></li>
+      <li><a href="mailto:jinwu0408@gmail.com" target=_blank class="social google">Email</a></li>
+      <li><a href="https://www.instagram.com/jin_wu/" target=_blank class="social instagram">Instagram</a></li>
+    </ul>
+    <p class="copyright">Copyright 2019, Jin Wu</p>
+  </footer>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+  <script src='scripts.js'></script>
+  <script src='snow_effect.js'></script>
+</body>
+
+
+</html>

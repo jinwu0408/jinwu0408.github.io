@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Supreme Bot</title>
+  <link rel="stylesheet" href="css/supreme.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="banner micromouse_banner">
+  </div>
+  <div class="context">
+    <div class="primary-content left-indent" id="content">
+      <div class="hori_bar_blue">
+        <!--introduction-->
+        <h1 class="title">What is Supreme Bot?</h1>
+        <p>
+          Supreme is an American skateboarding shop and clothing brand established
+          in New York City in April 1994. They are known for their fast sell-out speed.
+          Because some of their items sells really fast due to the demand, many
+          people are willing to pay ten times the price in the second market. As a
+          collector of Supreme, I don't want to pay the ridulous resell price. So,I made this
+          Supreme Bot helps to add items in cart and checkout automatically
+          in a timely fashion.
+        </p>
+      </div>
+      <!--End introduction-->
+      <div class="hori_bar_blue">
+        <h1>Setup Profile</h1>
+        <p>Use a separate file to store all the user infomation that will be filled.
+          Including:</p>
+        <ul>
+          <li>Item
+            <ul>
+              <li>Keyword</li>
+              <li>Size</li>
+              <li>Color</li>
+            </ul>
+          </li>
+          <li>Personal Information
+            <ul>
+              <li>Name</li>
+              <li>Address</li>
+              <li>Phone Number</li>
+              <li>Card Info.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Find The Correct Item</h1>
+        <div class="image">
+          <img src="img/supreme_home.jpg" alt="Geisel_Before_processed">
+          <figcaption>Fig.1 Supreme Home Page.</figcaption>
+        </div>
+        <p>We are using a pytho library called Webdriver, which is used to drive
+          Google Chrome. First, we need to load the Supreme page in Chrome. I noticed
+          that supreme URL is labeled by the category afterfix, such as
+          <a target="_blank" href="https://supremenewyork.com/shop/t-shirt">https://supremenewyork.com/shop/t-shirt</a>.
+          Second, we need to load item infomation and find the element. Once we found
+          the correct item, then we get the "href" attribute from the element.
+          Then we redirect to item page. </p>
+      </div>
+      <div class="hori_bar_blue">
+        <h1>Add To Cart</h1>
+        <p>Now, we are in the item page, then we need to add item into cart. First
+          we have to select the correct size. Then, we need to click on two button. First,
+          "Add to Cart" button. Then, "Checkour Now" button. once it is clicked, we are
+          redirect to the checkout page</p>
+        <div class="image">
+          <img src="img/supreme_atc.jpg" alt="Supreme_add_to_cart">
+          <figcaption>Fig.2 Supreme Item Page.</figcaption>
+        </div>
+      </div>
+      <div>
+        <h1>Check Out</h1>
+        <div class="image">
+          <img src="img/supreme_checkout.jpeg" alt="Supreme_checkout">
+          <figcaption>Fig.3 Supreme Checkout Page.</figcaption>
+        </div>
+        <p>To checkout the item, we need to use the methods from Webdriver,
+          send_key(), Select(), to fill all the infomation automatically. Then,
+          we just use .click() method to click the checkout button. then we are done.
+          The whold process takes about 5 seconds.</p>
+      </div>
+    </div><!-- End .primary-content -->
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com/jinwu0408" target=_blank class="social twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/jin-wu/" target=_blank class="social linkedin">LinkedIn</a></li>
+      <li><a href="https://github.com/jinwu0408" target=_blank class="social github">Github</a></li>
+      <li><a href="mailto:jinwu0408@gmail.com" target=_blank class="social google">Email</a></li>
+      <li><a href="https://www.instagram.com/jin_wu/" target=_blank class="social instagram">Instagram</a></li>
+    </ul>
+    <p class="copyright">Copyright 2019, Jin Wu</p>
+  </footer>
+</body>
+
+</html>

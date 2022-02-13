@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Micromouse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/Micromouse_style.css">
+</head>
+
+<body>
+  <div class="banner micromouse_banner">
+    <div class="banner_inner">
+      <h1 class="shadow">Micromouse</h1>
+      <a href="#content"><img class="arrow" src="img/arrow.svg" alt="Down arrow"></a>
+    </div>
+  </div>
+  <div class="context">
+    <div class="primary-content indent" id="content">
+      <div class="hori_bar_blue">
+        <!--introduction-->
+        <h1>What is Micromouse?</h1>
+        <p>
+          “Micromouse is an event where small robot mice solve a 16x16 maze.
+          The mice are completely autonomous robots that must find their way
+          from a predetermined starting position to the
+          central area of the maze unaided. The mouse will need to keep track
+          of where it is, discover walls as it explores, map out the maze and
+          detect when it has reached the goal. Once the optimal route has been
+          found, the mouse will run that route in the shortest possible time.”
+        </p>
+      </div>
+      <!--End introduction-->
+
+      <div class="hori_bar_blue clearfix">
+        <!--Constraint-->
+        <h1 class="title">Constraint</h1>
+        <div class="left">
+          <h4>Budget: $300</h4>
+          <ul>
+            <li>Micro Controller: STM32F446---$18.56</li>
+            <li>Sensor:
+              <ul>
+                <li>IR Sensor---$18.22</li>
+                <li>TOF(Time of Flight) Sensor---$63.96</li>
+              </ul>
+            </li>
+            <li>Motor: Gear Motor---$64.85</li>
+            <li>Power---$23.04</li>
+            <li>Other(Resistor,Capacitor, etc.)---85.53$</li>
+          </ul>
+        </div>
+        <div class="right">
+          <h4>Time: Oct.2018~Jun.2019</h4>
+          <ul>
+            <li>Fall Quarter:
+              <ul>
+                <li>Week4~Week6: Block Diagram</li>
+                <li>Week4~Week10: Schematic</li>
+              </ul>
+            </li>
+            <li>Winter Quarter:
+              <ul>
+                <li>Week1~Week6: PCB Design</li>
+                <li>Week6~Week8: Ordering PCB and Parts</li>
+                <li>Week8~Week10: PCB assemble</li>
+              </ul>
+            </li>
+            <li>Spring Quarter:</li>
+            <ul>
+              <li>Week1~Week3: Finishing PCB Assemble</li>
+              <li>Week4~Week7: Hardware Debug & Software Develop</li>
+              <li>Week8~Week10: Debug & Improvement</li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+      <div class="hori_bar_blue">
+        <!--Hardware-->
+        <h1 class="title">Hardware</h1>
+        <h4>Schematic:</h4>
+        <div class="image">
+          <img src="img/microController.jpg" alt="Schematic-MicroController">
+          <figcaption>Fig.1 Schematic of the Micro Controller</figcaption>
+        </div>
+        <p>We have decided to use STM32F446 as our Micro Controller. When designing
+          the schematic, we constantly refer to the datasheet to see which pin is
+          GPIO, clock, etc. Luckily, our mentor provided us the schematic symbol
+          with footprint, which saved us some time of making everything. </p>
+        <div class="image">
+          <img src="img/Power.jpg" alt="Schematic-Power">
+          <figcaption>Fig.2 Schematic of the Power</figcaption>
+        </div>
+        <p>For powering up the mouse, we need 5V and 3V3. The JST-PH connector
+          on the left has the battery plugs into. Then, it goes to a switch on
+          turing on or off the mouse. Having capacitors to prevent voltage spike
+          and 5V and 3V3 regulator to step down V-battery. On the right, there
+          a voltmeter to see if the batter is in a good condition.</p>
+        <div class="image">
+          <img src="img/Motor.jpg" alt="Schematic-Motor">
+          <figcaption>Fig.3 Schematic of the Motor</figcaption>
+        </div>
+        <p>The motors that we are using are DC step motors. When we choosing
+          motors, we are down to Faulhabor motors or step gear motors. Faulhabor
+          motors are more accurate and it comes with an encoder. However, the cost
+          are too high. So that we decided to use gear motors with H-Bridge(TC4427)
+          and encoders(ZXMHC3) to drive</p>
+        <div class="image">
+          <img src="img/Comm.jpg" alt="Schematic-Communication">
+          <figcaption>Fig.4 Schematic of the Communication</figcaption>
+        </div>
+        <p>On the left, it is the communication pins that we need to connect with
+          the neuclo board to programm the mouse. On the right, it is a bluetooth
+          divice that we initially planed to use for debug purposes. However, due
+          to the time constraint, we decide to move on without the bluetooth.</p>
+
+        <div class="image">
+          <img src="img/IR.jpg" alt="Schematic-IR">
+          <figcaption>Fig.5 Schematic of the IR Sensor</figcaption>
+        </div>
+        <p>IR sensor has two parts. On the left, it is the emmiter, which emmit
+          IR signal. Then the receiver, which is on the right, would receive the signal
+          and by calculating the time difference, we will able to get the distance that
+          the signal has traveled.</p>
+        <div class="image">
+          <img src="img/LED.jpg" alt="Schematic-LED">
+          <figcaption>Fig.6 Schematic of the LED & Button</figcaption>
+        </div>
+        <p>This is a simple LED and Button schematic. With 4 LED be programmable
+          with the micro controller and 1 LED direcly to the power to indicate the ON/OFF
+          state of the mouse. The two button would be programmable too, with one for reset
+          and one for future reference.</p>
+
+        <h4>PCB Design:</h4>
+        <div class="image">
+          <img src="img/IR-PCB.jpg" alt="PCB-IR">
+          <figcaption>Fig.7 IR Board</figcaption>
+        </div>
+        <p>It was my first time doing PCB. Even with the help from mentor,
+          I still had some difficulties. For example, I was planning on have 4 layers,
+          so that the wiring would be much simple with gound and power being a single
+          layer. However, the cost of 4 layers board is 7 times more expensive than
+          two layers, which is the reason of why we decided to stay with 2 layers.</p>
+        <div class="image">
+          <img src="img/TOF-PCB.jpg" alt="PCB-TOF">
+          <figcaption>Fig.8 TOF Board</figcaption>
+        </div>
+        <p>This is the board that I done with my teammates. We realized that
+          there is some mistakes made when we testing it. First, the power wires
+          on the bottom is too thin, which couldn't conduct the current. We
+          didn't found that mistake because it was not labeled correctly. Second,
+          the Tof sensor layout on the top right is fliped, which means we need to
+          put two sensors above the board and two sensors under the board. </p>
+
+        <h4>Fully Assembled Board:</h4>
+        <p>Comming soon</p>
+      </div>
+      <!--End Hardware-->
+
+      <div>
+        <!--software-->
+        <h1>Software</h1>
+      </div>
+      <!--End software-->
+      <p>Coming soon</p>
+    </div><!-- End .primary-content -->
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="https://twitter.com/jinwu0408" target=_blank class="social twitter">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/jin-wu/" target=_blank class="social linkedin">LinkedIn</a></li>
+      <li><a href="https://github.com/jinwu0408" target=_blank class="social github">Github</a></li>
+      <li><a href="mailto:jinwu0408@gmail.com" target=_blank class="social google">Email</a></li>
+      <li><a href="https://www.instagram.com/jin_wu/" target=_blank class="social instagram">Instagram</a></li>
+    </ul>
+    <p class="copyright">Copyright 2019, Jin Wu</p>
+  </footer>
+</body>
+
+</html>
